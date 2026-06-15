@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import type { Album } from "@/types";
 import Image from "next/image";
-import { Trash2, Plus, Pencil } from "lucide-react";
+import Link from "next/link";
+import { Trash2, Plus, Pencil, LayoutTemplate } from "lucide-react";
 
 export default function AdminAlbumsPage() {
   const [albums, setAlbums] = useState<Album[]>([]);
@@ -70,7 +71,6 @@ export default function AdminAlbumsPage() {
         </button>
       </div>
 
-      {/* Form modal */}
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
           <div className="w-full max-w-md rounded p-6 space-y-4" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
@@ -117,7 +117,6 @@ export default function AdminAlbumsPage() {
         </div>
       )}
 
-      {/* Albums list */}
       {loading ? (
         <p style={{ color: "var(--text-muted)" }}>Loading...</p>
       ) : albums.length === 0 ? (
@@ -130,7 +129,6 @@ export default function AdminAlbumsPage() {
               className="flex items-center gap-4 rounded p-4"
               style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
             >
-              {/* Cover thumb */}
               <div className="w-14 h-14 rounded overflow-hidden shrink-0 bg-neutral-800">
                 {album.cover_image_url ? (
                   <Image src={album.cover_image_url} alt="" width={56} height={56} className="w-full h-full object-cover" />
@@ -142,7 +140,14 @@ export default function AdminAlbumsPage() {
                   <p className="text-xs mt-0.5 truncate" style={{ color: "var(--text-muted)" }}>{album.description}</p>
                 )}
               </div>
-              <div className="flex gap-2 shrink-0">
+              <div className="flex gap-2 shrink-0 items-center">
+                <Link
+                  href={`/admin/albums/${album.id}/canvas`}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded text-xs transition-opacity hover:opacity-80"
+                  style={{ background: "var(--bg)", border: "1px solid var(--border)", color: "var(--accent)" }}
+                >
+                  <LayoutTemplate size={13} /> Edit Layout
+                </Link>
                 <button onClick={() => openEdit(album)} className="p-2 rounded transition-opacity hover:opacity-70" style={{ color: "var(--text-muted)" }}>
                   <Pencil size={15} />
                 </button>
