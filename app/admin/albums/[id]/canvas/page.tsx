@@ -455,7 +455,8 @@ export default function CanvasEditorPage() {
                       style={{
                         position: "absolute",
                         top: -14,
-                        right: -14,
+                        left: "50%",
+                        transform: "translateX(-50%)",
                         width: 28,
                         height: 28,
                         background: "#c0392b",
