@@ -142,5 +142,5 @@ create policy "Auth delete photos storage" on storage.objects
 
 alter table photos add column x float default 0;
 alter table photos add column y float default 0;
-alter table photos add column width float default 300;
-alter table photos add column height float default 200;
+alter table photos add column w float default 300;
+alter table photos add column h float default 200;
