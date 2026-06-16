@@ -3,18 +3,38 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0a0a0a;
-  --surface: #141414;
-  --border: #252525;
-  --text: #e8e8e8;
-  --text-muted: #666;
-  --accent: #e8e8e8;
+  --bg: #f5f0eb;
+  --surface: #fdfaf7;
+  --surface-2: #f0e8e0;
+  --border: #e0d4c8;
+  --border-hover: #c8b8a8;
+  --text: #3a2e28;
+  --text-secondary: #6a5a50;
+  --text-muted: #9a8878;
+  --text-disabled: #c0b0a8;
+  --accent: #c4845a;
+  --accent-purple: #9b7ab8;
+  --accent-teal: #5aa89b;
+  --accent-blue: #6a9ab8;
 }
 
 body {
-  background: linear-gradient(135deg, #080808 0%, #101010 50%, #141414 100%);
+  background: linear-gradient(135deg, #f5f0eb 0%, #ede4d8 40%, #f0e8e0 70%, #f5eeea 100%);
   background-attachment: fixed;
   color: var(--text);
   font-family: 'Georgia', serif;
   min-height: 100vh;
+}
+
+.gallery-title {
+  color: #3a2e28 !important;
+  text-shadow:
+    1px 1px 0px rgba(255,255,255,0.8),
+    2px 2px 0px rgba(255,255,255,0.5),
+    0 4px 12px rgba(180,140,80,0.2);
+}
+
+.bg-header {
+  background: linear-gradient(to bottom, #f0e8e0, #e8ddd0);
+  border-bottom: 1px solid rgba(180, 150, 110, 0.25);
 }
